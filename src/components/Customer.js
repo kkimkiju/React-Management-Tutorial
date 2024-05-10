@@ -1,36 +1,18 @@
 import React from "react";
+import { TableRow, TableCell } from "@mui/material"; // 수정
 
 const Customer = (props) => {
   return (
-    <div>
-      <CustomerProfile id={props.id} name={props.name} image={props.image} />
-      <CustomerInfo
-        birthday={props.birthday}
-        gender={props.gender}
-        job={props.job}
-      />
-    </div>
-  );
-};
-
-const CustomerProfile = (props) => {
-  return (
-    <>
-      <img src={props.image} alt="profile" width={200} />
-      <h2>
-        {props.name} ({props.id})
-      </h2>
-    </>
-  );
-};
-
-const CustomerInfo = (props) => {
-  return (
-    <>
-      <p>{props.birthday}</p>
-      <p>{props.gender}</p>
-      <p>{props.job}</p>
-    </>
+    <TableRow>
+      <TableCell>{props.id}</TableCell> {/* 수정 */}
+      <TableCell>
+        <img src={props.image} alt="profile" width={100} /> {/* 수정 */}
+      </TableCell>
+      <TableCell>{props.name}</TableCell>
+      <TableCell>{props.birthday}</TableCell>
+      <TableCell>{props.gender}</TableCell>
+      <TableCell>{props.job}</TableCell>
+    </TableRow>
   );
 };
 

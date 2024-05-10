@@ -1,6 +1,14 @@
 import logo from "./logo.svg";
 import "./App.css";
 import Customer from "./components/Customer";
+import Paper from "@mui/material/Paper";
+import {
+  Table,
+  TableBody,
+  TableHead,
+  TableRow,
+  TableCell,
+} from "@mui/material"; // 수정
 
 const customers = [
   {
@@ -34,22 +42,34 @@ const customers = [
 
 function App() {
   return (
-    <>
-      {customers.map((c) => {
-        //map을 쓸 때는 key가 있어야 함
-        return (
-          <Customer
-            key={c.id}
-            id={c.id}
-            image={c.image}
-            name={c.name}
-            birthday={c.birthday}
-            gender={c.gender}
-            job={c.job}
-          />
-        );
-      })}
-    </>
+    <Paper>
+      <Table>
+        <TableHead>
+          <TableRow>
+            <TableCell>번호</TableCell>
+            <TableCell>이미지</TableCell>
+            <TableCell>이름</TableCell>
+            <TableCell>생년월일</TableCell>
+            <TableCell>성별</TableCell>
+            <TableCell>직업</TableCell>
+          </TableRow>
+        </TableHead>
+
+        <TableBody>
+          {customers.map((c) => (
+            <Customer
+              key={c.id}
+              id={c.id}
+              image={c.image}
+              name={c.name}
+              birthday={c.birthday}
+              gender={c.gender}
+              job={c.job}
+            />
+          ))}
+        </TableBody>
+      </Table>
+    </Paper>
   );
 }
 
